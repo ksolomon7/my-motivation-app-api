@@ -5,4 +5,17 @@ class AuthorsController < ApplicationController
         render json: authors
     end
 
+    def create
+        author= Author.create!(author_params)
+        render json: author
+    end
+
+
+    private
+
+    def author_params
+        params.permit(:authorName, :quote, :motivationRate)
+    end
+
 end
+
